@@ -1,0 +1,62 @@
+
+body{
+    margin: 0px;
+    padding: 0px;
+    display: grid;
+    align-content: center;
+    justify-content: center;
+    
+}
+
+h1{
+    text-align: center;
+}
+
+.dados_basicos{
+    border-width: thin;
+    border-style: solid;
+    border-color: #000;
+    margin: 40px 100px 0px 300px;
+    padding: 10px;
+
+}
+
+.dados_basicos p{
+    margin-top: -20px;
+    background: white;
+    margin-right: 400px;
+    margin-left: 20px;
+    padding-left: 10px;
+}
+.dados_basicos div{
+    margin:  20px 0px 10px 10px;
+    padding: 10px;
+    display: flex;
+}
+
+
+
+.seus_cursos{
+    border-width: thin;
+    border-style: solid;
+    border-color: #000;
+    margin: 40px 100px 0px 300px;
+    padding: 10px;
+}
+
+.seus_cursos p{
+    margin-top: -20px;
+    background: white;
+    margin-right: 260px;
+    margin-left: 20px;
+    padding-left: 10px;
+}
+
+
+.seus_cursos div{
+    margin:  20px 0px 10px 10px;
+    padding: 10px;
+    display: block;
+}
+
+
