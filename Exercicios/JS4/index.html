@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- incompleto -->
+    <script>
+
+        class IntegerSet{
+            constructor(){
+                this.tamanho = 0;
+                this.conjuntos = {}; // conjunto vazio
+            }
+
+            insere(elemento) {
+                if(elemento > 100){
+                    return this.conjuntos;
+                }
+                this.conjuntos[this.tamanho] = elemento;
+                this.tamanho++;
+                return this.conjuntos;
+            }
+            exclui(){
+                const item = this.conjuntos[this.tamanho-1];
+                delete this.conjuntos[this.tamanho-1];
+                this.tamanho--;
+                return this.conjuntos;
+            }
+
+            deletaConjunto(index){
+                for(let i= index; i<this.tamanho-1;i++){
+                    this.conjuntos[i]=this.conjuntos[i+1];
+                }
+                delete this.conjuntos[this.tamanho-1];
+                this.tamanho--;
+                return this.conjuntos;
+            }
+            insereConjunto(item, index){
+                for(let i=this.tamanho;i>=index;i--){
+                    this.conjuntos[i]=this.conjuntos[i-1];
+                }
+                this.conjuntos[index]=item;
+                this.tamanho++;
+                return this.conjuntos;
+            }
+        }
+
+        
+
+        const set = new IntegerSet();
+        set.insere(12);
+        set.insere(13);
+        set.insere(14);
+        set.insere(102);
+
+       
+        console.log(set.conjuntos[0]);
+
+
+        for(var x in set.conjuntos){
+            document.write("<span>"+set.conjuntos[x]+" "+"</span>"); 
+        }
+
+        
+
+    </script>
+
+</body>
+</html>

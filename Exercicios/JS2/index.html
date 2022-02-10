@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Jokenpo</title>
+	<meta charset="utf-8">
+</head>
+<body>
+<script>
+	var USER = {
+		pontos: 0
+	};
+	var OP = ["invalido","PAPEL", "PEDRA", "TESOURA"];
+	var perdeu = 0;
+	var pontos = 0;
+
+	var papel = 1;
+	var pedra = 2;
+	var tesoura = 3;
+
+	while(perdeu != 1){
+	    console.log("Escolha sua jogada: 1 - Papel, 2 - Pedra, 3 - Tesoura");
+        var opUSER = parseInt(prompt("Escolha sua jogada"));
+        
+        var opPC = Math.floor(Math.random() * 3)+1;
+
+        if((opUSER == papel && opPC == pedra) || (opUSER == tesoura && opPC == papel) || (opUSER == pedra && opPC == tesoura) || (opUSER == opPC)) {
+            if(opUSER != opPC ){
+                USER.pontos++;
+                console.log("Ganhou!");
+            }else{
+                console.log("Empatou!");
+            }
+        }else {
+            perdeu = 1;
+            console.log("perdeu! sua pontuacao foi " + USER.pontos + " pontos");
+        }
+        console.log("USER:" + OP[opUSER] + ":" + opUSER + ", PC :" + OP[opPC] +":" + opPC + ".");
+	}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="styles.css" media="screen"/>
+    <title>Exercício 1 de javascript</title>
+</head>
+
+<body>
+    <h1>Tabuada de 1 a 10</h1>
+
+    <script type="text/javascript">
+        
+        for(var tabela = 1; tabela < 11; tabela++){
+            document.write("<table class='table' border=1><thead><tr><td colspan=2><b>Produtos de " + tabela + "</b> </td></tr></thead>");
+            for(var linha_tabela = 1; linha_tabela < 11; linha_tabela++){
+                var valor = linha_tabela * tabela;
+                document.write("<tr><td>" + tabela + " x " + linha_tabela + "</td><td>" + valor + "</td></tr>");		
+            }
+            document.write("</table>");
+        }
+
+    </script>
+</body>
+</html>
