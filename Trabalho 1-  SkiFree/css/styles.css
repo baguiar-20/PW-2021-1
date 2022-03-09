@@ -1,0 +1,145 @@
+#montanha {
+  border: 1px solid black;
+  position: relative;
+  overflow: hidden;
+}
+
+#skier {
+  position: absolute;
+}
+
+#placar {
+  border: 1px solid black;
+  position: relative;
+  float: left;
+  width: 300px;
+  height: 200px;
+  margin-left: 350px;
+  margin-top: -400px;
+  padding-left: 10px;
+}
+
+
+#metros, #textMetros {
+  font-family: 'Fredoka', sans-serif;
+}
+
+.arvore {
+  background-image: url(obstacles.png);
+  background-position: -0px -31px;   
+  width: 28px;
+  height: 32px;   
+  position: absolute;
+}
+
+.arbusto_em_chamas{
+  background-image: url(obstacles.png);
+  background-position: -48px -98px;   
+  width: 22px;
+  height: 32px;   
+  position: absolute;
+}
+
+.rocha{
+  background-image: url(obstacles.png);
+  background-position: -30px -45px;   
+  width: 24px;
+  height: 19px;   
+  position: absolute;
+}
+
+.toco{
+  background-image: url(obstacles.png);
+  background-position: -253px -51px;   
+  width: 16px;
+  height: 12px;   
+  position: absolute;
+}
+
+.arvoreGrande{
+  background-image: url(obstacles.png);
+  background-position: -96px -66px;   
+  width: 33px;
+  height: 64px;   
+  position: absolute;
+}
+
+.cogumelo{
+  background-image: url(obstacles.png);
+  background-position: -270px -51px;   
+  width: 11px;
+  height: 12px;   
+  position: absolute;
+}
+
+.cachorro{
+  background-image: url(skier.png);
+  background-position: -0px -207px;   
+  width: 23px;
+  height: 17px;   
+  position: absolute;
+}
+
+
+.skier-batida{
+  background-image: url(skier.png);
+  background-position: -82px -83px;
+  width: 34px;
+  height: 27px;
+}
+
+
+.skier-fim-vidas {
+  background-image: url(skier.png);
+  background-position: -241px -267px;
+  width: 32px;
+  height: 34px;
+}
+
+.frame-fim-jogo {
+  border: 3px solid black;
+  height: 30%;
+  width: 60%;
+  display: block;
+  margin: 35% 20%;
+  border-radius: 5px;
+  position: relative;
+  background: gray;
+  overflow: hidden;
+  opacity: 0.95;
+}
+
+.frame-fim-jogo span {
+   width: 90%; 
+   margin: 5%;
+   font-size: 14px;
+   text-align: center;
+}
+.frame-fim-jogo h5 {
+   width:60%;
+   margin: 15%;
+   text-align: center;
+}
+
+
+
+.para-frente {
+  background-image: url(skier.png);
+  background-position: -67px -2px;
+  width: 15px;
+  height: 32px;
+}
+
+.para-direita {
+  background-image: url(skier.png);
+  background-position: -26px -6px;
+  width: 22px;
+  height: 28px;
+}
+
+.para-esquerda {
+  background-image: url(skier.png);
+  background-position: -26px -43px;
+  width: 22px;
+  height: 28px;
+}
