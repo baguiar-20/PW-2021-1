@@ -25,13 +25,13 @@
   }
 
   window.addEventListener('keydown', (e) => {
-    if (e.key === 'ArrowLeft') skier.mudarDirecao(-1)
-    else if (e.key === 'ArrowRight') skier.mudarDirecao(+1);
-    else if (e.key == 'f') skier.aumentarVelocidade();
+    if (e.key === 'ArrowLeft' || e.key === 'a' ) skier.mudarDirecao(-1)
+    else if (e.key === 'ArrowRight'  || e.key === 'd') skier.mudarDirecao(+1);
+    else if (e.key == 'f' || e.key == 'w' ) skier.aumentarVelocidade();
   })
 
 
-  function Colisao(skier,obstaculo){
+  function colisao(skier,obstaculo){
 
     var colisou;
 
@@ -39,43 +39,38 @@
     var refObstaculo = window.getComputedStyle(obstaculo.element, null); // pega as propriedades CSS do obstaculo
 
     var refSkierTop = parseInt(refSkier.top.substring(0, refSkier.length - 2)); // top do skier
-    var refObstaculoTop = parseInt(refObstaculo.top.substring(0, refObstaculo.length - 2)); // top do obstaculo
-
+    var refSkierRight = parseInt(refSkier.left) + parseInt(getComputedStyle(skier.element).getPropertyValue('width'));
+    var refSkierBottom = parseInt(refSkier.top) + parseInt(getComputedStyle(skier.element).getPropertyValue('height'));
     var refSkierLeft = parseInt(refSkier.left.substring(0, refSkier.length - 2)); // left do skier
+
+    var refObstaculoTop = parseInt(refObstaculo.top.substring(0, refObstaculo.length - 2)); // top do obstaculo
+    var refObstaculoRight = parseInt(refObstaculo.left) + parseInt(getComputedStyle(obstaculo.element).getPropertyValue('width'));
+    var refObstaculoBottom = parseInt(refObstaculo.top) + parseInt(getComputedStyle(obstaculo.element).getPropertyValue('height'));
     var refObstaculoLeft = parseInt(refObstaculo.left.substring(0, refObstaculo.length - 2)); // left do obstaculo
 
-    var refSkierHeight = parseInt(refSkier.height.substring(0, refSkier.length - 2)); // altura do skier
-    var refObstaculoHeight = parseInt(refObstaculo.height.substring(0, refObstaculo.length - 2)); // altura do obstaculo 
-
-    var refSkierWidth = parseInt(refSkier.width.substring(0, refSkier.length - 2)); // largura do skier
-    var refObstaculoWidth = parseInt(refObstaculo.width.substring(0, refObstaculo.length - 2)); // largura do obstaculo 
 
 
-    var posSkierCimaAltura = refSkierTop + refSkierHeight; 
-    var posSkierLadoLargura = refSkierLeft + refSkierWidth;
+    var colisouAcima = refObstaculoTop == refSkierBottom && refObstaculoLeft <= refSkierRight && refObstaculoRight >= refSkierLeft;
 
-    var posObstaculoCimaAltura = refObstaculoTop + refObstaculoHeight;
-    var posObstaculoLadoLargura = refObstaculoLeft + refObstaculoWidth;
+    var colisouBaixo = refObstaculoBottom == refSkierTop && refObstaculoLeft <= refSkierRight && refObstaculoRight >= refSkierLeft;
 
+    // var colisouEsquerda = refObstaculoRight >= refSkierLeft && (refObstaculoLeft +parseInt(getComputedStyle(obstaculo.element).getPropertyValue('width')) <= refSkierRight); // refObstaculoRight >= refSkierLeft
 
-    var posInfDir = ((posSkierCimaAltura >= refObstaculoTop) && (posObstaculoCimaAltura >= posSkierCimaAltura)  && (refObstaculoLeft >= refSkierLeft) && (refObstaculoLeft <= posSkierLadoLargura)); // pega a posição inferior direita em relaçao ao skier, se essa ponta toca no obstaculo
+    // (posObstaculoCimaAltura >= posObstaculoCimaAltura) && (posObstaculoLadoLargura >= refSkierLeft) && (posObstaculoLadoLargura <= posSkierLadoLargura)); 
 
-    var posInfEsq = ((refObstaculoTop <= posSkierCimaAltura) && (posObstaculoCimaAltura >= posObstaculoCimaAltura) && (posObstaculoLadoLargura >= refSkierLeft) && (posObstaculoLadoLargura <= posSkierLadoLargura)); // pega a posição inferior esquerda em relaçao ao skier, se essa ponta toca no obstaculo
+    var colisouEsquerda = refObstaculoLeft <= refSkierRight && refObstaculoRight >= refSkierLeft;
+    console.log("refObstaculoLeft" + refObstaculoLeft,  "refSkierRight", refSkierRight);
 
-    var posSupDir = ((refSkierTop <= posObstaculoCimaAltura) && (refObstaculoTop <= refSkierTop) && (refObstaculoLeft >= refSkierLeft) && (refObstaculoLeft <= posSkierLadoLargura)); // pega a posição superior direita em relaçao ao skier, se essa ponta toca no obstaculo
-  
-    var posSupEsq = ((refSkierTop <= posObstaculoCimaAltura) && (refObstaculoTop <= refSkierTop) && (posObstaculoLadoLargura >= refSkierLeft) && (posSkierLadoLargura >= posObstaculoLadoLargura)); // pega a posição superior esquerda em relaçao ao skier, se essa ponta toca no obstaculo
-
+    var colisouDireita = refObstaculoLeft <= refSkierRight && refObstaculoRight >= refSkierLeft;
+    // if(colisouEsquerda == true){
+    //   console.log("colisouEsquerda " + colisouEsquerda+ " " + obstaculo.element.className);
+    // }
     
-    var posSup = (refSkierTop <= posObstaculoCimaAltura) && (refObstaculoTop <= refSkierTop) && (refObstaculoLeft <= refSkierLeft) && (posObstaculoLadoLargura >= posSkierLadoLargura); // pega a posição superior acima em relaçao ao skier, se o topo toca no obstaculo
-
-    var posInf = (posSkierCimaAltura >= refObstaculoTop) && (posObstaculoCimaAltura >= posSkierCimaAltura) && (refObstaculoLeft <= refSkierLeft) && (posObstaculoLadoLargura  >= posSkierLadoLargura); // pega a posição inferior abaixo em relaçao ao skier, se a parte de baixo toca no obstaculo
-
-    colisou = posInfDir || posSupDir || posInfEsq || posSupEsq || posSup || posInf; // se algum der true quer dizer q colidiu com o obstaculo
-    // if(colisou == true) console.log(posInfDir, posSupDir, posInfEsq , posSupEsq , posSup, posInf);
-    
+    colisou = colisouAcima || colisouBaixo;
     return colisou;
   }
+
+
 
   /*
   * Classe Montanha
@@ -96,7 +91,7 @@
       montanha.element.appendChild(frameFimJogo);
 
       clearInterval(gameLoop);
-      // init();
+      //init();
     }
   }
 
@@ -199,11 +194,11 @@
       this.element.className = 'skier-fim-vidas';
       var instanciaSkier = this;
 
-      this.functionBlink = setInterval(function () {
+      this.acabou = setInterval(function () {
           var display = ['block', 'none'];
           instanciaSkier.element.style.display = display[instanciaSkier.tempo % 2];
           if (instanciaSkier.tempo > 3) {
-              clearInterval(instanciaSkier.functionBlink);
+              clearInterval(instanciaSkier.acabou);
           };
           instanciaSkier.tempo++;
 
@@ -241,8 +236,7 @@
     limitesMontanha(){
         var style = window.getComputedStyle(this.element, null);
   
-        var top = style.top;
-        top = top.substring(0, top.length - 2);
+        var top = style.top.substring(0, style.top.length - 2);
   
         var height = style.height;
         height = height.substring(0, height.length - 2);
@@ -270,16 +264,15 @@
             }, 200);
         }
     }
-
-    
-
     removeObstaculo() {
       this.element.display = 'none';
     }
-
     animacaoCogumelo(){
       this.continuaNoJogo = 0;
       this.element.style.display = 'none';
+    }
+    animacaoCachorro(){
+      this.element.className = 'cachorro1';
     }
         
   }
@@ -287,32 +280,39 @@
  
 
 
-  function Roda(arrayObstaculos, nomeClasse){
+  function Roda(arrayObstaculos){
     arrayObstaculos.forEach(a => {
       a.criaObstaculoRandom(skier.velocidade);
       if (a.continuaNoJogo && !a.limitesMontanha()) {
-        if (Colisao(skier, a)) {
+        if (colisao(skier, a)) {
           if(a.element.className == 'cogumelo'){
             skier.mensagem = "Consumiu alucinógenos" ;
             skier.vidas++;
-            console.log(skier.vidas);
+            // console.log(skier.vidas);
             a.animacaoCogumelo();
           }
           else if(a.element.className == 'cachorro'){
             skier.mensagem = "Olha o doguizineo";
             skier.vidas--;
-            skier.batida(a, arrayObstaculos, nomeClasse);
+            a.animacaoCachorro();
+            skier.batida(a, arrayObstaculos);
           }
           else{
-            skier.vidas--;
-            if (skier.vidas < 0) {
+            if(skier.vidas < 0){
               skier.fimVida();
               montanha.fimJogo();
-              // init();
+              skier.mensagem = "Você morreu :(";
+            }
+            skier.vidas--;
+            if (skier.vidas <= 0) {
+              skier.fimVida();
+              montanha.fimJogo();
+              skier.mensagem = "Você morreu :(";
+              
             } 
             else {
               skier.mensagem = "Cuidado!";
-              skier.batida(a, arrayObstaculos, nomeClasse);
+              skier.batida(a, arrayObstaculos);
                 // a.removeObstaculo(arrayObstaculos);
                 
             }
@@ -349,9 +349,6 @@
     }
 
     skier.andar();
-    
-
-
     skier.placar();
   
   }

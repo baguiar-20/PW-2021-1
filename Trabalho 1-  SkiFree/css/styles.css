@@ -1,7 +1,15 @@
+body{
+  background-color: #c1e6e2;
+}
+
+
+
 #montanha {
   border: 1px solid black;
   position: relative;
   overflow: hidden;
+  background-color: #fffafa;
+  border-color: green;
 }
 
 #skier {
@@ -17,11 +25,40 @@
   margin-left: 350px;
   margin-top: -400px;
   padding-left: 10px;
+  /* border-radius: 10px; */
+
+  background: #41c7bf;
+  border-radius: 16px;
+  box-shadow: 0 0 0.5em rgb(0, 0, 0);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(210, 79, 118, 0.35);
 }
 
 
-#metros, #textMetros {
+#textPlacar {
+  text-align: center;
+}
+#textPlacar, #metros, #vidas, #velocidade, #mensagem, #textMetros, #textVidas, #textVel, #regras{
   font-family: 'Fredoka', sans-serif;
+}
+
+
+#regras{
+  position: relative;
+  float: left;
+  margin-left: 700px;
+  margin-top: -390px;
+}
+
+#regras h2{
+  /* margin-left: 150px; */
+  text-align: center;
+}
+
+#regras p{
+  font-size: 16pt;
+  text-align: center;
 }
 
 .arvore {
@@ -74,9 +111,17 @@
 
 .cachorro{
   background-image: url(skier.png);
-  background-position: -0px -207px;   
-  width: 23px;
-  height: 17px;   
+  background-position: -0px -204px;
+  width: 21px;
+  height: 19px;   
+  position: absolute;
+}
+
+.cachorro1{
+  background-image: url(skier.png);
+  background-position: -45px -204px;
+  width: 22px;
+  height: 19px;   
   position: absolute;
 }
 
@@ -97,14 +142,14 @@
 }
 
 .frame-fim-jogo {
-  border: 3px solid black;
+  border: 2px solid green;
   height: 30%;
   width: 60%;
   display: block;
   margin: 35% 20%;
   border-radius: 5px;
   position: relative;
-  background: gray;
+  background: #e0f2f0;
   overflow: hidden;
   opacity: 0.95;
 }
@@ -114,11 +159,14 @@
    margin: 5%;
    font-size: 14px;
    text-align: center;
+
+   font-family: 'Fredoka', sans-serif;
 }
 .frame-fim-jogo h5 {
    width:60%;
    margin: 15%;
    text-align: center;
+   font-family: 'Fredoka', sans-serif;
 }
 
 
