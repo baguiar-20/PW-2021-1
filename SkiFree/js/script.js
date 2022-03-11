@@ -270,11 +270,7 @@
             skier.batida(a, arrayObstaculos);
           }
           else{
-            if(skier.vidas < 0){
-              skier.fimVida();
-              montanha.fimJogo();
-              skier.mensagem = "Você morreu :(";
-            }
+
             skier.vidas--;
             if (skier.vidas <= 0) {
               skier.fimVida();
