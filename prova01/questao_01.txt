@@ -1,0 +1,15 @@
+1. Nas linhas 24 a 29, abre-se uma tag de style porém o conteudo é uma function do javascript.
+
+2. Na linha 11, ta invertido o id como background-color, e o parametro para mudar a cor tem o nome do id.
+O certo seria:
+
+#para{
+    background-color: blue;
+}
+
+
+3. Nas linhas 06 e 07, tem dois meta identificando o nome e o content do html.
+
+4. Na linha 4, o comentario está errado. O certo seria:
+
+<!-- Isto é um comentário, não deve aparecer na página -->
