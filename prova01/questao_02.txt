@@ -1,0 +1,32 @@
+Tres seletores para selecionar apenas o span.
+
+<body>
+ <h1>Instituto de Computação</h1>
+ <a class="cl1" href="http://icomp.ufam.edu.br">IComp</a>
+ <p>Estou aprendendo <span class="cl1" title="css">CSS</span>.</p>
+ <p class="cl1">Esta prova está mole!</p>
+ <a href="http://w3c.org">Visite o website da W3C</a>
+</body>
+
+
+1. 
+
+body span{
+    font-size: 12pt;
+}
+
+
+2. 
+
+span{
+    fonte-size: 12pt;
+}
+
+3.
+
+p span{
+    fonte-size: 12pt;
+}
+
+
+

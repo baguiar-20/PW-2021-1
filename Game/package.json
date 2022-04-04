@@ -11,7 +11,8 @@
     "esm": "^3.2.25",
     "express": "^4.17.3",
     "express-handlebars": "^6.0.3",
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.0",
+    "node-sass-middleware": "^1.0.1"
   },
   "devDependencies": {
     "nodemon": "^2.0.15"

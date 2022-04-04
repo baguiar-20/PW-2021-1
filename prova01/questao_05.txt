@@ -1,0 +1,8 @@
+O padrão de desenvolvimento MVC (model, view, controller)
+
+
+O model, como proprio nome diz é o modelo que vai ser implementado. Por exemplo, as classes que implementam os atributos e os metodos do Skier.
+
+O view é a visualização, as telas, interface onde vai ser possivel interagir.
+
+E o controller é onde o model é controlado para que seja visto atraves do view.
