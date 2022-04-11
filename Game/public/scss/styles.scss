@@ -1,0 +1,223 @@
+
+$headings-font-family:        "Cabin Sketch", cursive;
+$black:    #000 !default;
+$gray-600: #868e96 !default;
+
+
+p{
+    font-size: 12pt;
+    margin-left: 30px;
+    margin-right: 20px;
+    font-family: $headings-font-family;
+    color: $black;
+
+}
+
+img{
+    // margin-left: 30px;
+    width: 200px;
+    margin-left: 450px;
+}
+.rodape{
+    display: flex; 
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    margin: 40px;
+}
+
+
+body{
+    background-color: #c1e6e2;
+  }
+  
+  
+  
+  #montanha {
+    border: 1px solid black;
+    position: relative;
+    overflow: hidden;
+    background-color: #fffafa;
+    border-color: green;
+  }
+  
+  #skier {
+    position: absolute;
+  }
+  
+  #placar {
+    border: 1px solid black;
+    position: relative;
+    float: left;
+    width: 300px;
+    height: 200px;
+    margin-left: 350px;
+    margin-top: -320px;
+    padding-left: 10px;
+    /* border-radius: 10px; */
+  
+    background: #41c7bf;
+    border-radius: 16px;
+    box-shadow: 0 0 0.5em rgb(0, 0, 0);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(210, 79, 118, 0.35);
+  }
+  
+  
+  #textPlacar {
+    text-align: center;
+  }
+  #textPlacar, #metros, #vidas, #velocidade, #mensagem, #textMetros, #textVidas, #textVel, #regras{
+    font-family: $headings-font-family;
+  }
+  
+  
+  #regras{
+    position: relative;
+    float: left;
+    margin-left: 700px;
+    margin-top: -390px;
+  }
+  
+  #regras h2{
+    /* margin-left: 150px; */
+    text-align: center;
+  }
+  
+  #regras p{
+    font-size: 16pt;
+    text-align: center;
+  }
+  
+  .arvore {
+    background-image: url('../img/obstacles.png');
+    background-position: -0px -31px;   
+    width: 28px;
+    height: 32px;   
+    position: absolute;
+  }
+  
+  .arbusto_em_chamas{
+    background-image: url('../img/obstacles.png');
+    background-position: -48px -98px;   
+    width: 22px;
+    height: 32px;   
+    position: absolute;
+  }
+  
+  .rocha{
+    background-image: url('../img/obstacles.png');
+    background-position: -30px -45px;   
+    width: 24px;
+    height: 19px;   
+    position: absolute;
+  }
+  
+  .toco{
+    background-image: url('../img/obstacles.png');
+    background-position: -253px -51px;   
+    width: 16px;
+    height: 12px;   
+    position: absolute;
+  }
+  
+  .arvoreGrande{
+    background-image: url('../img/obstacles.png');
+    background-position: -96px -66px;   
+    width: 33px;
+    height: 64px;   
+    position: absolute;
+  }
+  
+  .cogumelo{
+    background-image: url('../img/obstacles.png');
+    background-position: -270px -51px;   
+    width: 11px;
+    height: 12px;   
+    position: absolute;
+  }
+  
+  .cachorro{
+    background-image: url('../img/skier.png');
+    background-position: -0px -204px;
+    width: 21px;
+    height: 19px;   
+    position: absolute;
+  }
+  
+  .cachorro1{
+    background-image: url('../img/skier.png');
+    background-position: -45px -204px;
+    width: 22px;
+    height: 19px;   
+    position: absolute;
+  }
+  
+  
+  .skier-batida{
+    background-image: url('../img/skier.png');
+    background-position: -82px -83px;
+    width: 34px;
+    height: 27px;
+  }
+  
+  
+  .skier-fim-vidas {
+    background-image: url('../img/skier.png');
+    background-position: -241px -267px;
+    width: 32px;
+    height: 34px;
+  }
+  
+  .frame-fim-jogo {
+    border: 2px solid green;
+    height: 40%;
+    width: 60%;
+    display: block;
+    margin: 35% 20%;
+    border-radius: 5px;
+    position: relative;
+    background: #e0f2f0;
+    overflow: hidden;
+    opacity: 0.95;
+  }
+  
+  .frame-fim-jogo span {
+     width: 90%; 
+     margin: 5%;
+     font-size: 14px;
+     text-align: center;
+  
+     font-family: $headings-font-family;
+  }
+  .frame-fim-jogo h5 {
+     width:60%;
+     margin: 15%;
+     text-align: center;
+     font-family: $headings-font-family;
+  }
+  
+  
+  
+  .para-frente {
+    background-image: url('../img/skier.png');
+    background-position: -67px -2px;
+    width: 15px;
+    height: 32px;
+  }
+  
+  .para-direita {
+    background-image: url('../img/skier.png');
+    background-position: -26px -6px;
+    width: 22px;
+    height: 28px;
+  }
+  
+  .para-esquerda {
+    background-image: url('../img/skier.png');
+    background-position: -26px -43px;
+    width: 22px;
+    height: 28px;
+  }

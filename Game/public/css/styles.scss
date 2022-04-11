@@ -1,0 +1,13 @@
+$color: red;
+
+body{
+    background-color: aqua;
+}
+
+div{
+    color: $color;
+}
+
+p{
+    font-size: 12pt;
+}
