@@ -12,10 +12,28 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
     }
-  }
+  };
   Curso.init({
-    sigla: DataTypes.STRING,
-    nome: DataTypes.STRING,
+    sigla: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: {
+          args: [4,4],
+          msg: "A Sigla precisa conter 4 caracteres"
+        }
+      }
+    },
+    nome: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: {
+          args: [3,40],
+          msg: "O Nome do curso precisa conter entre 3 e 40 caracteres"
+        }
+      }
+    },
     descricao: DataTypes.TEXT,
     areaId: DataTypes.INTEGER
   }, {

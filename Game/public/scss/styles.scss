@@ -3,6 +3,10 @@ $headings-font-family:        "Cabin Sketch", cursive;
 $black:    #000 !default;
 $gray-600: #868e96 !default;
 
+.invalid-feedback {
+  display: block;
+}
+
 
 p{
     font-size: 12pt;
@@ -26,12 +30,11 @@ img{
     padding: 10px;
     margin: 40px;
 }
+body {
+  font-family: 'Open Sans', sans-serif;
+  background-color: #c1e6e2;
+}
 
-
-body{
-    background-color: #c1e6e2;
-  }
-  
   
   
   #montanha {

@@ -1,12 +1,19 @@
 import express from 'express';
 import router from './config/router';
 
-
+// como estamos usando expresss 4 é preciso instalar o body-parser
+const bp = require('body-parser')
 const sass = require('node-sass-middleware');
 const handlebars = require("express-handlebars");
 const morgan = require("morgan");
 const app = express();
 const PORT = 3000;
+
+const cookieParser = require('cookie-parser');
+app.use(cookieParser());
+
+app.use(bp.json())
+app.use(bp.urlencoded({ extended: true }))
 
 app.engine("handlebars", handlebars.engine());
 app.set("view engine","handlebars");
@@ -21,6 +28,7 @@ app.use(sass({
     outputStyle: 'compressed',
     prefix: '/css',
     }));
+    
 app.use('/css', express.static(__dirname + '/public/css'));
 app.use('/js', [
     express.static(__dirname + '/node_modules/bootstrap/dist/js/'),
