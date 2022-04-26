@@ -5,12 +5,16 @@ import AreaController from "../app/controllers/area"
 import cursoController from "../app/controllers/curso"
 
 const router = express.Router();
+const csrf = require('csurf')
+var cookieParser = require('cookie-parser');
+const csrfProtection = csrf({ cookie: true });
 
 
 /// rota da main
 router.get("/",                     mainController.index);
 router.get("/about",                mainController.about);
 router.get('/game',                 mainController.game);
+router.get('/signup',                 mainController.signup);
 
 // rota da area
 router.get('/area',                 AreaController.index);

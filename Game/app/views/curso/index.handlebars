@@ -18,10 +18,10 @@
                   
                     {{#each cursos}}
                     <tr>
-                        <td>{{sigla}}</td>
+                        <td scope="row">{{sigla}}</td>
                         <td>{{nome}}</td>
                         <td>
-                            <a href="/curso/{{id}}"><i class="fa-solid fa-eye"></i></a>
+                            <a href="/curso/{{id}}"><i class="fa fa-eye"></i></a>
                             <a href="/curso/update/{{id}}"><i class="fas fa-edit"></i></a>
                             <a href="/curso/remove/{{id}}"><i class="fas fa-trash-alt"></i></a>
                         </td>
