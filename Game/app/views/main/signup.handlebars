@@ -6,9 +6,10 @@
             <form action="/signup" method="post">
             <input type="hidden" name="_csrf" value="{{csrf}}">
             
-            <div class"form-group">
+            <div class= "form-group">
                 <label for="nome" class="f form-label mt-4">Nome completo</label>
                 <input type="text" class="form-control" id="nome" name="nome" placeholder="John Doe">
+                
             </div>
 
             <div class="form-group">
@@ -16,11 +17,11 @@
                 <input type="email" class="form-control" id="email" name="email" placeholder="joao@gmail.com">
             </div>
             <div class="form-group">
-                <label for="curdoId" class="form-label mt-4">Seu curso na UFAM</label>
-                <select name="" id="">
+                <label for="cursoId" class="form-label mt-4">Seu curso na UFAM</label>
+                <select class="form-select" id="cursoId" name="cursoId">
                     <option value="0"> Selecione seu curso</option>
                     {{#each cursos}}
-                    <option value="{{id}}">{{nome}}</option>
+                        <option value="{{id}}">{{nome}}</option>
                     {{/each}}
                 </select>
             </div>

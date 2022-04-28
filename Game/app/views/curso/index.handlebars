@@ -1,35 +1,64 @@
-<div class="col-lg-12">
-            <div class="page-header">
-              <h1 id="tables">Cursos 
-                  <a href="/curso/create" class="btn btn-outline-primary">Criar Curso</a>
-              </h1>
-            </div>
 
-            <div class="bs-component">
-              <table class="table table-hover">
-                <thead>
+
+<div class="col-lg-12">
+    <div class="page-header">
+      <h1 id="tables" style=" margin: 20px 0px 20px 120px">Cursos 
+          <a href="/curso/create" class="btn btn-outline-primary">Criar Curso</a>
+      </h1>
+    </div>
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+          <div class="bs-component">
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th scope="col">Sigla</th>
+                  <th scope="col">Nome</th>
+                  <th scope="col"></th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                  {{#each cursos}}
                   <tr>
-                    <th scope="col">Sigla</th>
-                    <th scope="col">Nome</th>
-                    <th scope="col"></th>
-                  </tr>
-                </thead>
-                <tbody>
-                  
-                    {{#each cursos}}
-                    <tr>
-                        <td scope="row">{{sigla}}</td>
-                        <td>{{nome}}</td>
-                        <td>
-                            <a href="/curso/{{id}}"><i class="fa fa-eye"></i></a>
-                            <a href="/curso/update/{{id}}"><i class="fas fa-edit"></i></a>
+                      <td scope="row">{{sigla}}</td>
+                      <td>{{nome}}</td>
+                      <td>
+                          <a href="/curso/{{id}}"><i class="fa fa-eye"></i></a>
+                          <a href="/curso/update/{{id}}"><i class="fas fa-edit"></i></a>
+                          <a href="#"  data-bs-toggle="modal" data-bs-target="#exampleModal">
                             <a href="/curso/remove/{{id}}"><i class="fas fa-trash-alt"></i></a>
-                        </td>
-                    </tr>
-                    {{/each}}
-                  
-                  
-                </tbody>
-              </table>
-            </div><!-- /example -->
+                          </a>
+                      </td>
+                  </tr>
+                  {{/each}}
+              </tbody>
+            </table>
           </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Deletar Curso</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Tem certeza que deseja deletar esse curso {{curso.nome}}? Essa operação não pode ser desfeita.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary">Sim, quero apagar esse curso.</button>
+      </div>
+    </div>
+  </div>
+</div>
+

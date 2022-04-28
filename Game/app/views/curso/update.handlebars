@@ -1,0 +1,47 @@
+<h2>Editar Curso</h2>
+
+<form action="/curso/update/{{curso.id}}" method="post">
+  <input type="hidden" name="_csrf" value="{{csrf}}">
+  {{!-- <input type="hidden" name="id" value={{curso.id}}> --}}
+  <div class="form-group">
+    <label for="sigla">Sigla do curso</label>
+    <input type="text" class="form-control" id="sigla" name="sigla" aria-describedby="emailHelp" placeholder="Ex: IE07" value="{{curso.sigla}}">
+    <small class="form-text text-muted">Em caso de dúvida, verifique no site da UFAM</small>
+    {{!-- <div class="invalid-feedback">{{ printError errors "sigla"}}</div> --}}
+  </div>
+
+  <div class="form-group">
+    <label for="nome">Nome</label>
+    <input type="text" class="form-control" id="nome" name="nome" aria-describedby="emailHelp" placeholder="Ex: Ciência da Computação" value="{{curso.nome}}">
+    <small class="form-text text-muted">Nome do curso</small>
+    <div class="invalid-feedback">{{ printError errors "nome"}}</div>
+  </div>
+
+  <div class="form-group">
+    <label for="descricao">Descrição do curso. </label>
+    <textarea class="form-control" id="descricao" name="descricao" rows="3">{{curso.descricao}}</textarea>
+  </div>
+
+  <fieldset class="form-group">
+    <legend>Áreas da Ciência</legend>
+    <div class="form-check">
+      <label class="form-check-label">
+        <input type="radio" class="form-check-input" name="areaId" id="areaId" value="1" {{ checked curso.areaId 1 }}>
+        Ciências Exatas. Ex: Computação, Matemática, Estatistica, etc.
+      </label>
+    </div>
+    <div class="form-check">
+      <label class="form-check-label">
+        <input type="radio" class="form-check-input" name="areaId" id="areaId" value="2"  {{ checked curso.areaId 2 }}>
+        Ciências Humanas: Ex: Letras, História, Psicologia, etc.
+      </label>
+    </div>
+    <div class="form-check disabled">
+      <label class="form-check-label">
+        <input type="radio" class="form-check-input" name="areaId" id="areaId" value="3" {{ checked curso.areaId 3 }}>
+        Ciências Biológicas: Ex: Medicina, Odonto, Agronomia, etc.
+      </label>
+    </div>
+  </fieldset>
+  <button type="submit" class="btn btn-primary">Atualizar Curso</button>
+</form>

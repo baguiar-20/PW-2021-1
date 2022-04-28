@@ -35,6 +35,11 @@ body {
   background-color: #c1e6e2;
 }
 
+.card-curso{
+  display: flex;
+  justify-content: space-between;
+}
+
   
   
   #montanha {
@@ -74,6 +79,12 @@ body {
   }
   #textPlacar, #metros, #vidas, #velocidade, #mensagem, #textMetros, #textVidas, #textVel, #regras{
     font-family: $headings-font-family;
+  }
+
+  #iniciar-partida{
+    position: relative;
+    float: left;
+    margin-left: 400px;
   }
   
   

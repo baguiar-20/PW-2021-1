@@ -2,20 +2,20 @@
 
 module.exports = {
   async up (queryInterface, Sequelize) {
-    /**
-     * Add altering commands here.
-     *
-     * Example:
-     * await queryInterface.createTable('users', { id: Sequelize.INTEGER });
-     */
+   await queryInterface.addConstraint('Cursos', {
+     type: 'foreign key',
+     filds: ['areaId'],
+     name: 'curso_area_fk',
+     references: {
+       table: 'Areas',
+       field: 'id'
+     },
+     onDelete: 'restrict',
+     onUpdate: 'restrict'
+   })
   },
 
   async down (queryInterface, Sequelize) {
-    /**
-     * Add reverting commands here.
-     *
-     * Example:
-     * await queryInterface.dropTable('users');
-     */
+    await queryInterface.removeConstraint('Cursos', 'foreign key' );
   }
 };

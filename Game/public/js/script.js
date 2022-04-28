@@ -74,6 +74,7 @@
 
     fimJogo(){
       var frameFimJogo = document.createElement('div');
+      frameFimJogo.setAttribute("id", "pontos");
       frameFimJogo.className = 'frame-fim-jogo';
       frameFimJogo.innerHTML = '<h5> FIM DE JOGO! </h5>' +
                       '<span> Sua pontuacao foi: ' + skier.pontuacao + '</span>'; 

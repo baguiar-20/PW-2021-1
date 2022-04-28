@@ -6,8 +6,7 @@ module.exports = (sequelize, DataTypes) => {
   class Area extends Model {
    
     static associate(models) {
-      const { curso } = models;
-      // Area.hasMany(curso);
+      this.hasMany(models.Curso);
     }
   }
   Area.init({

@@ -29,7 +29,8 @@ async function create(req,res){
 async function read(req,res){
     const curso = await Curso.findOne ({where: {id: req.params.id}})
     res.render("curso/read", {
-        curso: curso.toJSON()
+        curso: curso.toJSON(),
+        csrf: req.csrfToken()
     })
 }
 
@@ -37,7 +38,8 @@ async function update(req,res){
     const curso = await Curso.findOne({where:{id:req.params.id}});
     if(req.route.methods.get){
         res.render("curso/update", {
-            curso: curso.toJSON()
+            curso: curso.toJSON(),
+            csrf: req.csrfToken()
         })
     }else{
         try{
@@ -51,6 +53,7 @@ async function update(req,res){
         }catch(error) {
             res.render("curso/update", {
                 curso: curso.toJSON(),
+                csrf: req.csrfToken(),
                 error : error
             });
         }
@@ -59,8 +62,16 @@ async function update(req,res){
 
 
 async function remove(req,res){
-    await Curso.destroy({where:{id:req.params.id}});
-    res.redirect("/curso/");
+    try{
+        await Curso.destroy({where:{id:req.params.id}});
+        // res.send('Curso apagado com sucesso!')
+        res.redirect("/curso/");
+    }
+    catch(error){
+        console.log(error);
+        res.status(500).send(error)
+    }
+    
 }
 
 

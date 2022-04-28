@@ -1,13 +1,14 @@
 import express from 'express';
 import router from './config/router';
 import {v4 as uuidv4} from 'uuid';
-// import csurf from 'csurf';
+
 
 // como estamos usando expresss 4 é preciso instalar o body-parser
 const bp = require('body-parser')
 const sass = require('node-sass-middleware');
 const handlebars = require("express-handlebars");
 const morgan = require("morgan");
+const session =  require('express-session');
 const app = express();
 const PORT = 3000;
 
@@ -25,13 +26,11 @@ app.get("/cookie", (req, res)=>{
 
 })
 
-app.get("/apagar-cookie", (req, res) =>{
-    res.clearCookie("usuario");
-    res.send("cookie apagado");
-})
+// app.get("/apagar-cookie", (req, res) =>{
+//     res.clearCookie("usuario");
+//     res.send("cookie apagado");
+// })
 
-
-const session =  require('express-session');
 
 app.use(session({
     genid: (req) => {
@@ -43,15 +42,18 @@ app.use(session({
 }));
 
 
-// app.use('/webfonts', express.static(`${__dirname}/node_modules/@fortawesome/fontawesome-free/webfonts`));
-
-
+app.use((req, res, next)=>{
+    app.locals.isLogged = 'uid' in req.session;
+    next();
+});
 
 
 app.use(bp.json())
 app.use(bp.urlencoded({ extended: true }))
 
-app.engine("handlebars", handlebars.engine());
+app.engine("handlebars", handlebars.engine({
+    helpers: require(`${__dirname}/app/views/helpers`)
+}));
 app.set("view engine","handlebars");
 
 app.set("views", `${__dirname}/app/views`);
@@ -64,11 +66,14 @@ app.use(sass({
     outputStyle: 'compressed',
     prefix: '/css',
     }));
+app.use("/webfonts", express.static(`${__dirname}/node_modules/@fortawesome/fontawesome-free/webfonts`))
     
 app.use('/css', express.static(__dirname + '/public/css'));
 app.use('/js', [
-    express.static(__dirname + '/node_modules/bootstrap/dist/js/'),
-    express.static(__dirname + '/public/js')
+    express.static(__dirname+'/node_modules/jquery/dist/'),
+    express.static(__dirname+'/node_modules/popper.js/dist/umd/'),
+    express.static(__dirname+'/node_modules/bootstrap/dist/js/'),
+    express.static(__dirname+'/public/js/')
     ]);
     
 const csurf = require("csurf");
@@ -77,8 +82,6 @@ app.use(csrfProtection);
     
 
 app.use(router); // informando as rotas
-
-
 
 app.use(morgan("combined"));
 
